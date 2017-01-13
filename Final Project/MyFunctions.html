@@ -3,6 +3,7 @@
     <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
     <meta content="utf-8" http-equiv="encoding">
     <title>Software Development - Assessment - Stevie Comyn - 1618883</title>
+
     <!--    CSS    -->
     <style media="screen" type="text/css">
         hr {
@@ -15,7 +16,7 @@
         margin: 1em 0;
         padding: 0;
         }
-        </style><!--   CSS    -->
+    </style><!--   CSS    -->
 
     <script><!--   JAVASCRIPT FUNCTIONS   -->
         var previousName = "";  // Global Variable to allow previously entered name to be used in username generator function.
@@ -37,10 +38,8 @@
               }
             }
              while (userInput > 255 || userInput < 1)
-
         return userInput;
         }
-
         function menu()  // Function that contains the menu and all options.
         {
         previousName = prompt("Please enter your Name:"); // Global Variable, Ask User for Name, for use in Menu Interface.
@@ -49,75 +48,66 @@
         +"<b>01 - Username Generator</b> - Use this to Create a Username based on your Full Name.<br><br>"
         +"<b>02 - Factorial Calculator</b> - Use this to Calculate the Factorial of a Given Number.<br><br>"
         +"<b>03 - Quit</b> - Once you're finished, Close the Program.<br><HR><br>");
-        // A fetailed description of the Menu options, and what they do.
+        // A detailed description of the Menu options, and what they do.
 
         do
         {
         menuChoice = parseInt(prompt("Which Menu Item would you like?"));  // Main Menu selection input.
-
         switch (menuChoice)
-        {
-        case 1:
-        document.write("<h2>01 - Username Generator</h2><br>");
-        document.write("Your Username is: ",userNameGenerator(),"<br><br>");
-        break;
-        case 2:
-        document.write("<h2>02 - Factorial Calculator</h2><br>");
-        factorialUI();
-        document.write("<br><br>");
-        break;
-        case 3:
-        document.write("<h2>03 - Quit</h2><br>");
-        window.alert("Thanks for your time, "+previousName+", Live Long and Prosper. (Goodbye)");
-        document.getElementsByTagName('HTML')[0].innerHTML="";
-        document.body.style.backgroundColor = "#3c3c3c";
-        break;
-        default:
-        window.alert("\u26A0  ERROR - "+previousName+", Let's be Serious. Please, Pick a number between 1-3.");  // Error Message for input other than 1-3.
-        menuChoice = parseInt(prompt("Which Menu Item would you like?"));  // Main Menu selection input.
-        }
+            {
+            case 1:
+            document.write("<h2>01 - Username Generator</h2><br>");
+            document.write("Your Username is: ",userNameGenerator(),"<br><br>");
+            break;
+            case 2:
+            document.write("<h2>02 - Factorial Calculator</h2><br>");
+            factorialUI();
+            document.write("<br><br>");
+            break;
+            case 3:
+            document.write("<h2>03 - Quit</h2><br>");
+
+            window.alert("Thanks for your time, "+previousName+", Live Long and Prosper. (Goodbye)");
+            document.getElementsByTagName('HTML')[0].innerHTML="";
+            document.body.style.backgroundColor = "#3c3c3c";
+            break;
+            default:
+            window.alert("\u26A0  ERROR - "+previousName+", Let's be Serious. Please, Pick a number between 1-3.");  // Error Message for input other than 1-3.
+            menuChoice = parseInt(prompt("Which Menu Item would you like?"));  // Main Menu selection input.
+            }
         }
         while (menuChoice<3)
-
         }
-
         function userNameGenerator()  // Create an unique Username, based on the Users full Name (Firstname + Surname).
-        {
-        var userName = "";
-        var humanName = prompt("Please enter your Full Name:", previousName);  // Ask User for Full Name, if not already stored from asking at start of Menu.
-        document.write("You have Entered: ",humanName,"<br><br>");  // Visually confirm Users Number.
-        var nameArray = humanName.split(" ");  // Split string into an Array.
-        userName = humanName.charAt(0)+nameArray[1];  // Concat Username together.
-
-        return userName;
-        }
-
+            {
+            var userName = "";
+            var humanName = prompt("Please enter your Full Name:", previousName);  // Ask User for Full Name, if not already stored from asking at start of Menu.
+            document.write("You have Entered: ",humanName,"<br><br>");  // Visually confirm Users Number.
+            var nameArray = humanName.split(" ");  // Split string into an Array.
+            userName = humanName.charAt(0)+nameArray[1];  // Concat Username together.
+            return userName;
+            }
         function factorialUI()  // Acts as the User Interface for the Factorial Calculator Function.
-        {
-        var usersNumber = 0;  // Variable created to store the Users Input.
-        var answer = 0;  // Variable to store calculateFactorial()'s output.
-
-        usersNumber=verifyInput();  // Get a Number from the User with the userInput Function.
-        usersNumberRaw=usersNumber;  // Keep Users Original Number, for output at End.
-        answer=calculateFactorial(usersNumber);  // Call calculateFactorial()
-        document.write(usersNumberRaw,"! = ",answer);  // Output original Number, plus caculated answer.
-
-        }
-
+            {
+            var usersNumber = 0;  // Variable created to store the Users Input.
+            var answer = 0;  // Variable to store calculateFactorial()'s output.
+            usersNumber=verifyInput();  // Get a Number from the User with the userInput Function.
+            usersNumberRaw=usersNumber;  // Keep Users Original Number, for output at End.
+            answer=calculateFactorial(usersNumber);  // Call calculateFactorial()
+            document.write(usersNumberRaw,"! = ",answer);  // Output original Number, plus caculated answer.
+            }
         function calculateFactorial(usersNumber)  // Calculate the Factorial of the Input Number.
         {
-        var multiplier = 0;  // Variable in place to act as a Mulitplier for the factorial Caculation.
-        document.write("You have Chosen: ",usersNumber,"! <br><br>"); // Visually confirm Users Number.
-        multiplier=usersNumber-1;    //Get first number for multiplication loop.
-        while (multiplier>1)  //Loop Designed to multiply the usersNumber until the multiplier is at 1.
-        {
-            usersNumber=usersNumber*multiplier
-            multiplier=multiplier-1
+            var multiplier = 0;  // Variable in place to act as a Mulitplier for the factorial Caculation.
+            document.write("You have Chosen: ",usersNumber,"! <br><br>"); // Visually confirm Users Number.
+            multiplier=usersNumber-1;    //Get first number for multiplication loop.
+            while (multiplier>1)  //Loop Designed to multiply the usersNumber until the multiplier is at 1.
+                {
+                usersNumber=usersNumber*multiplier
+                multiplier=multiplier-1
+                }
+            return usersNumber;
         }
-
-        return usersNumber;
-        }
-
     </script><!--   JAVASCRIPT FUNCTIONS   -->
 </head>
 <body style="color: #33ff99; background: #3c3c3c;">
